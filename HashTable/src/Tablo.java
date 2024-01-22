@@ -3,11 +3,10 @@ public class Tablo {
     int size;
     public Tablo( int size) {
         this.size = size;
-        this.dizi = new Node[size];
+        dizi = new Node[size];
         for(int i=0;i<size; i++){
             dizi[i]=new Node();
         }
-
     }
     int IndexUret(int key){
         return key % size;
@@ -16,7 +15,11 @@ public class Tablo {
         int index=IndexUret(key);
         Node eleman=new Node(key,isim);
         Node temp=dizi[index];
-        while(temp.next!=null){//soana ekleme yaptı
+        while(temp.next!=null){//sona ekleme yaptı
+            if (temp.next.key == key) {
+                System.out.println("Aynı key değeriyle zaten bir eleman eklenmiş.");
+                return;
+            }
             temp=temp.next;
         }
         temp.next=eleman;
@@ -33,8 +36,6 @@ public class Tablo {
             System.out.println(temp.next.isim+" silindi.");
             temp.next=null;
         }
-
-
         else{
             while(temp.next!=null){
                 temp2=temp;
@@ -47,6 +48,26 @@ public class Tablo {
         }
     }
     void yazdir(){
-
+        for(int i=0;i<size;i++){
+            Node temp=dizi[i];
+            System.out.print("Dizi["+i+"] ->");
+                while (temp.next!=null){
+                    System.out.print(temp.next.key+" - "+temp.next.isim+" -> ");
+                    temp=temp.next;
+                }
+                System.out.println();
+        }
+    }
+    void ara(int key) {
+        int index = IndexUret(key);
+        Node temp = dizi[index];
+        while (temp != null) {
+            if (temp.key == key) {
+                System.out.println("Aranan key değeri bulundu: " + temp.isim);
+                return;
+            }
+            temp = temp.next;
+        }
+        System.out.println("Aranan key değeri bulunamadı.");
     }
 }

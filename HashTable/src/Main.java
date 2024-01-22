@@ -3,20 +3,20 @@ public class Main {
         Tablo hTable=new Tablo(5);
         hTable.ekle(0,"ahmet");
         hTable.ekle(10,"mehmet");
-
         hTable.ekle(3,"hasan");
         hTable.ekle(4,"hüseyin");
-
         hTable.ekle(2,"ayşe");
         hTable.ekle(22,"fatma");
-
         hTable.ekle(15,"beyza");
         hTable.ekle(9,"ece");
-       // System.out.println(hTable.dizi[3].next.isim);
-        hTable.sil(0);
-        hTable.sil(2);
-        hTable.sil(22);
-        System.out.println(hTable.dizi[2].next.next.isim);
+        hTable.ekle(1,"Nevra");
+        hTable.ekle(6,"Nur");
+        hTable.ekle(7,"Doğan");
+        hTable.sil(15);
+        hTable.ara(1);
+        hTable.ara(22);
+
+        hTable.yazdir();
 
     }
 }
